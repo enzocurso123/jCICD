@@ -17,32 +17,23 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class PessoaServiceTest {
     
-    private PessoaService pessoaServive;
-    
+    private PessoaService pessoaService;
+        
     @org.junit.jupiter.api.BeforeEach
     public void setUp() throws Exception {
-    }
-
-
-    /**
-     * Test of getPessoaModelByNome method, of class PessoaService.
-     */
-    @org.junit.jupiter.api.Test
-    public void testGetPessoaModelByNome() {
+        pessoaService = new PessoaService();
+    
         System.out.println("getPessoaModelByNome");
-        
+                
         String nome = "Lori";
-        
+                
         PessoaService instance = new PessoaService();
         instance.addPessoa(PessoaModel.builder().nome(nome).build());
-        
-        PessoaModel expResult = null;
-        
+                
+        PessoaModel expResult = PessoaModel.builder().nome(nome).build();
+                
         PessoaModel result = instance.getPessoaModelByNome(nome);
-        
+                
         assertEquals(expResult.getNome(), result.getNome());
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-    
 }
